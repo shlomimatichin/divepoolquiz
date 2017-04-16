@@ -1,8 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
+<meta name="msapplication-tap-highlight" content="no">
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+<meta charset="UTF-8">
+<title>Divepool Quiz</title>
 <script type="text/javascript">
-var pool = new Array(
+var randomPool = new Array(
 	new Array( "A", "Unipod",
 		"fai/random/A.unipod.png",
 		"fastrax/random/A.unipod.png" ),
@@ -50,11 +54,13 @@ var pool = new Array(
 		"fastrax/random/P.sidebody.png" ),
 	new Array( "Q", "Phalanx",
 		"fai/random/Q.phalanx.png",
-		"fastrax/random/Q.phalanx.png" ),
+		"fastrax/random/Q.phalanx.png" )
+);
 
-	new Array( "1", "Snowflake - Offset",
-		"fai/blocks/1.snowflake.offset.png",
-		"fastrax/blocks/1.snowflake.offset.jpg" ),
+var blocksPool = new Array(
+	new Array( "1", "Snowflake - Snowflake",
+		"fai/blocks/1.snowflake.snowflake.png",
+		"jumpoutofaplane/blocks/1.snowflake.snowflake.png" ),
 	new Array( "2", "Sidebody Donut - Side Flake Donut",
 		"fai/blocks/2.sidebody donut.side flake donut.png",
 		"fastrax/blocks/2.sidebody donut.side flake donut.jpg" ),
@@ -88,9 +94,9 @@ var pool = new Array(
 	new Array( "12", "Bundy - Bundy",
 		"fai/blocks/12.bundy.bundy.png",
 		"fastrax/blocks/12.bundy.bundy.jpg" ),
-	new Array( "13", "Hammer - Hammer",
-		"fai/blocks/13.hammer.hammer.png",
-		"fastrax/blocks/13.hammer.hammer.jpg" ),
+	new Array( "13", "Offset - Spinner",
+		"fai/blocks/13.offset.spinner.png",
+		"jumpoutofaplane/blocks/13.offset.spinner.png" ),
 	new Array( "14", "Bipole - Bipole",
 		"fai/blocks/14.bipole.bipole.png",
 		"fastrax/blocks/14.bipole.bipole.jpg" ),
@@ -118,19 +124,20 @@ var pool = new Array(
 	new Array( "22", "Tee - Chinese Tee",
 		"fai/blocks/22.tee.chinese tee.png",
 		"fastrax/blocks/22.tee.chinese tee.jpg" )
-)
+);
 
 var index = 0;
 var question = "";
 
-var sampleQueries = {
-	'allusers': 'select * from user limit 20',
-	'ditched': 	'create temporary table v6 as \n' +
-				'select v9.id,v9.address,user.email,v9.firsttime,v9.lasttime from v9 left join user on v9.user_id=user.id;',
-	'sms': 'SELECT * FROM sms;'
-	}
-
 function nextQuestion() {
+    var pool;
+    if (document.getElementById( 'blocks' ).checked)
+        if (document.getElementById( 'randoms' ).checked)
+            pool = randomPool.concat(blocksPool);
+        else
+            pool = blocksPool;
+    else
+        pool = randomPool;
 	index = Math.round( Math.random() * ( pool.length - 1 ) );
 	question = pool[ index ];
 	document.getElementById( 'letter' ).innerHTML = "?";
@@ -139,7 +146,7 @@ function nextQuestion() {
 	document.getElementById( 'image2' ).src = "question.png";
 	document.getElementById( 'next' ).innerHTML = '';
 	document.getElementById( 'reveal' ).innerHTML = 'Reveal Answer';
-	option = Math.round( Math.random() * 3 );
+	option = Math.floor( Math.random() * 3.99 );
 	if ( option == 0 )
 		document.getElementById( 'letter' ).innerHTML = question[ 0 ]; 
 	if ( option == 1 )
@@ -160,36 +167,67 @@ function reveal() {
 }
 
 </script>
+<style>
+    body {
+        font-size: 6vmin;
+        margin: 0;
+        padding: 0;
+        font-family: Verdana,sans-serif;
+    }
+    h1, h2, h3, h4 {
+        margin: 0
+    }
+    #next, #reveal {
+        width: 43vmin;
+        text-decoration:none;
+        float: left;
+        color: #fff;
+        background-color: #337ab7;
+        border-color: #2e6da4;
+        padding: 6px 12px;
+        margin: 1px;
+        text-align: center;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+</style>
 </head>
 <body>
-	<div style="position:absolute;left:0px;bottom:0px">
-			<a style="font-size:80%" href="ftp://www.fai.org/parachuting/competition_rules/fs4_pool.pdf">FAI 4-Way FS Block Dive Pool</a><br/>
-			<a style="font-size:80%" href="ftp://www.fai.org/parachuting/competition_rules/fs4_pool_randoms.pdf">FAI 4-Way FS Random Dive Pool</a><br/>
-			<br/>
-			<a href="quiz.zip">Downloadable Version Of This Quiz</a><br/>
-			Black and white images &copy; <a href="http://www.fai.org/parachuting/documents">FAI</a><br/>
-			Color images &copy; <a href="http://www.teamfastrax.org/documents.aspx">Team Fastrax</a><br/>
-			Divepool Quiz &copy; 2008 Shlomo Matichin
+	<div style="position:absolute;left:0px;bottom:0px;font-size: 60%;">
+        <a href="http://www.fai.org/downloads/ipc/SC5_CR_Indoor_VFS_2015">FAI 4-Way FS Dive Pool</a><br/>
+        <a href="http://jumpoutofaplane.com/images/DivePool_Blocks_and_Randoms.pdf">JumpOutOfAPlane Dive Pool</a><br/>
+        Black and white images &copy; <a href="http://www.fai.org/parachuting/documents">FAI</a><br/>
+        Color images &copy; <a href="http://www.teamfastrax.org/documents.aspx">Team Fastrax</a><br/>
+        Color images &copy; <a href="http://jumpoutofaplane.com/images">Jump Out of a Plane</a><br/>
+        Divepool Quiz &copy; 2008 Shlomo Matichin
 	</div>
-	<table width="100%"><tr width="100%"><td width="30%" style="vertical-align:top;">
-		<div style="top:0px; vertical-align:top;">
-			<h1>Dive Pool Quiz</h1>
-			<a id="next" onclick="nextQuestion();" href="#">Start</a>
-			<a id="reveal" onclick="reveal();" href="#"></a>
-			<h2>Letter / Number: <span id="letter">?</span></h2>
-			<h2>Name: <span id="name">?</span></h2>
-			Each question shows only one detail.<br/>
-			Do you know the other three?<br/>
-		</div>
-	</td><td width="30%">
-		<center>
-			<img src="question.png" id="image1" style="max-height:550px">
-		</center>
-	</td><td width="30%">
-		<center>
-			<img src="question.png" id="image2" style="max-height:550px">
-		</center>
-	</td></tr></table>
+    <div style="top:0px; vertical-align:top;">
+        <h1 style="text-align:center">Dive Pool Quiz</h1>
+        <a id="next" onclick="nextQuestion();" href="#">Start</a>
+        <a id="reveal" onclick="reveal();" href="#"></a>
+        <div style="clear: both;"/>
+        <h2>Letter / Number: <span id="letter">?</span></h2>
+        <h2>Name: <span id="name">?</span></h2>
+    </div>
+    <div style="width: 49vmin; height: 60vh; float:left">
+        <img src="question.png" id="image1" style='height: 100%; width: 100%; object-fit: contain'>
+    </div>
+    <div style="width: 49vmin; height: 60vh; float:left">
+        <img src="question.png" id="image2" style='height: 100%; width: 100%; object-fit: contain'>
+    </div>
+    <div style="clear: both;"/>
+	<div style="position:absolute;right:0px;bottom:0px;font-size: 60%; text-align:right;">
+        <input type="checkbox" id="randoms" checked>Randoms<br/>
+        <input type="checkbox" id="blocks" checked>Blocks<br/>
+	</div>
 </body>
 
 </html>
