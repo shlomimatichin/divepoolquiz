@@ -130,6 +130,8 @@ var index = 0;
 var question = "";
 
 function nextQuestion() {
+	document.getElementById( 'copyright' ).style = "display:none";
+	document.getElementById( 'config' ).style = "display:none";
     var pool;
     if (document.getElementById( 'blocks' ).checked)
         if (document.getElementById( 'randoms' ).checked)
@@ -178,7 +180,7 @@ function reveal() {
         margin: 0
     }
     #next, #reveal {
-        width: 43vmin;
+        width: 40vmin;
         text-decoration:none;
         float: left;
         color: #fff;
@@ -201,7 +203,7 @@ function reveal() {
 </style>
 </head>
 <body>
-	<div style="position:absolute;left:0px;bottom:0px;font-size: 60%;">
+	<div id="copyright" style="position:absolute;left:0px;bottom:45vh;font-size: 60%;">
         <a href="http://www.fai.org/downloads/ipc/SC5_CR_Indoor_VFS_2015">FAI 4-Way FS Dive Pool</a><br/>
         <a href="http://jumpoutofaplane.com/images/DivePool_Blocks_and_Randoms.pdf">JumpOutOfAPlane Dive Pool</a><br/>
         Black and white images &copy; <a href="http://www.fai.org/parachuting/documents">FAI</a><br/>
@@ -211,20 +213,22 @@ function reveal() {
 	</div>
     <div style="top:0px; vertical-align:top;">
         <h1 style="text-align:center">Dive Pool Quiz</h1>
-        <a id="next" onclick="nextQuestion();" href="#">Start</a>
-        <a id="reveal" onclick="reveal();" href="#"></a>
         <div style="clear: both;"/>
         <h2>Letter / Number: <span id="letter">?</span></h2>
         <h2>Name: <span id="name">?</span></h2>
     </div>
     <div style="width: 49vmin; height: 60vh; float:left">
-        <img src="question.png" id="image1" style='height: 100%; width: 100%; object-fit: contain'>
+        <img id="image1" style='height: 100%; width: 100%; object-fit: contain'>
     </div>
     <div style="width: 49vmin; height: 60vh; float:left">
-        <img src="question.png" id="image2" style='height: 100%; width: 100%; object-fit: contain'>
+        <img id="image2" style='height: 100%; width: 100%; object-fit: contain'>
     </div>
     <div style="clear: both;"/>
-	<div style="position:absolute;right:0px;bottom:0px;font-size: 60%; text-align:right;">
+    <div>
+        <a id="next" onclick="nextQuestion();" href="#">Start</a>
+        <a id="reveal" onclick="reveal();" href="#"></a>
+    </div>
+	<div id="config" style="position:absolute;left:0px;bottom:25vh;font-size: 60%; text-align:left;">
         <input type="checkbox" id="randoms" checked>Randoms<br/>
         <input type="checkbox" id="blocks" checked>Blocks<br/>
 	</div>
