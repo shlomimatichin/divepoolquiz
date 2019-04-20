@@ -57,22 +57,13 @@ var randomPool = new Array(
 		"fastrax/random/Q.phalanx.png" )
 );
 
-var blocksPool = new Array(
-	new Array( "1", "Snowflake - Snowflake",
-		"fai/blocks/1.snowflake.snowflake.png",
-		"jumpoutofaplane/blocks/1.snowflake.snowflake.png" ),
+var blocksAPool = new Array(
 	new Array( "2", "Sidebody Donut - Side Flake Donut",
 		"fai/blocks/2.sidebody donut.side flake donut.png",
 		"fastrax/blocks/2.sidebody donut.side flake donut.jpg" ),
-	new Array( "3", "Side Flake Opal - Turf",
-		"fai/blocks/3.side flake opal.turf.png",
-		"fastrax/blocks/3.side flake opal.turf.jpg" ),
 	new Array( "4", "Monopod - Monopod",
 		"fai/blocks/4.monopod.monopod.png",
 		"fastrax/blocks/4.monopod.monopod.jpg" ),
-	new Array( "5", "Opal - Opal",
-		"fai/blocks/5.opal.opal.png",
-		"fastrax/blocks/5.opal.opal.jpg" ),
 	new Array( "6", "Stardian - Stardian",
 		"fai/blocks/6.stardian.stardian.png",
 		"fastrax/blocks/6.stardian.stardian.jpg" ),
@@ -85,45 +76,58 @@ var blocksPool = new Array(
 	new Array( "9", "Cat + Accordian - Cat + Accordian",
 		"fai/blocks/9.cat_accordian.cat_accordian.png",
 		"fastrax/blocks/9.cat_accordian.cat_accordian.jpg" ),
-	new Array( "10", "Diamond - Bunyip",
-		"fai/blocks/10.diamond.bunyip.png",
-		"fastrax/blocks/10.diamond.bunyip.jpg" ),
+	new Array( "19", "Ritz - Icepick",
+		"fai/blocks/19.ritz.icepick.png",
+		"fastrax/blocks/19.ritz.icepick.jpg" ),
+	new Array( "21", "Zigzag - Marquis",
+		"fai/blocks/21.zigzag.marquis.png",
+		"fastrax/blocks/21.zigzag.marquis.jpg" ),
+);
+var blocksAAPool = new Array(
+	new Array( "1", "Molar - Molar",
+		"fai/blocks/1.molar.molar.png",
+		"rhythmskydiving/blocks/1.molar.molar.png" ),
 	new Array( "11", "Photon - Photon",
 		"fai/blocks/11.photon.photon.png",
 		"fastrax/blocks/11.photon.photon.jpg" ),
-	new Array( "12", "Bundy - Bundy",
-		"fai/blocks/12.bundy.bundy.png",
-		"fastrax/blocks/12.bundy.bundy.jpg" ),
-	new Array( "13", "Offset - Spinner",
-		"fai/blocks/13.offset.spinner.png",
-		"jumpoutofaplane/blocks/13.offset.spinner.png" ),
+	new Array( "13", "Mixed Accordian - Mixed Accordian",
+		"fai/blocks/13.mixed accordian.mixed accordian.png",
+		"rhythmskydiving/blocks/13.mixed accordian.mixed accordian.png" ),
 	new Array( "14", "Bipole - Bipole",
 		"fai/blocks/14.bipole.bipole.png",
 		"fastrax/blocks/14.bipole.bipole.jpg" ),
 	new Array( "15", "Caterpillar - Caterpillar",
 		"fai/blocks/15.caterpillar.caterpillar.png",
 		"fastrax/blocks/15.caterpillar.caterpillar.jpg" ),
+	new Array( "18", "Zircon - Zircon",
+		"fai/blocks/18.zircon.zircon.png",
+		"fastrax/blocks/18.zircon.zircon.jpg" ),
+	new Array( "20", "Piver - Viper",
+		"fai/blocks/20.piver.viper.png",
+		"fastrax/blocks/20.piver.viper.jpg" ),
+	new Array( "22", "Tee - Chinese Tee",
+		"fai/blocks/22.tee.chinese tee.png",
+		"fastrax/blocks/22.tee.chinese tee.jpg" ),
+);
+var blocksAAAPool = new Array(
+	new Array( "3", "Side Flake Opal - Turf",
+		"fai/blocks/3.side flake opal.turf.png",
+		"fastrax/blocks/3.side flake opal.turf.jpg" ),
+	new Array( "5", "Opal - Opal",
+		"fai/blocks/5.opal.opal.png",
+		"fastrax/blocks/5.opal.opal.jpg" ),
+	new Array( "10", "Diamond - Bunyip",
+		"fai/blocks/10.diamond.bunyip.png",
+		"fastrax/blocks/10.diamond.bunyip.jpg" ),
+	new Array( "12", "Bundy - Bundy",
+		"fai/blocks/12.bundy.bundy.png",
+		"fastrax/blocks/12.bundy.bundy.jpg" ),
 	new Array( "16", "Compressed Accordian - Box",
 		"fai/blocks/16.compressed accordian.box.png",
 		"fastrax/blocks/16.compressed accordian.box.jpg" ),
 	new Array( "17", "Danish Tee - Murphy",
 		"fai/blocks/17.danish tee.murphy.png",
 		"fastrax/blocks/17.danish tee.murphy.jpg" ),
-	new Array( "18", "Zircon - Zircon",
-		"fai/blocks/18.zircon.zircon.png",
-		"fastrax/blocks/18.zircon.zircon.jpg" ),
-	new Array( "19", "Ritz - Icepick",
-		"fai/blocks/19.ritz.icepick.png",
-		"fastrax/blocks/19.ritz.icepick.jpg" ),
-	new Array( "20", "Piver - Viper",
-		"fai/blocks/20.piver.viper.png",
-		"fastrax/blocks/20.piver.viper.jpg" ),
-	new Array( "21", "Zigzag - Marquis",
-		"fai/blocks/21.zigzag.marquis.png",
-		"fastrax/blocks/21.zigzag.marquis.jpg" ),
-	new Array( "22", "Tee - Chinese Tee",
-		"fai/blocks/22.tee.chinese tee.png",
-		"fastrax/blocks/22.tee.chinese tee.jpg" )
 );
 
 var index = 0;
@@ -132,14 +136,15 @@ var question = "";
 function nextQuestion() {
 	document.getElementById( 'copyright' ).style = "display:none";
 	document.getElementById( 'config' ).style = "display:none";
-    var pool;
-    if (document.getElementById( 'blocks' ).checked)
-        if (document.getElementById( 'randoms' ).checked)
-            pool = randomPool.concat(blocksPool);
-        else
-            pool = blocksPool;
-    else
-        pool = randomPool;
+    var pool = []
+    if (document.getElementById('randoms').checked)
+        pool = pool.concat(randomPool);
+    if (document.getElementById('blocksA').checked)
+        pool = pool.concat(blocksAPool);
+    if (document.getElementById('blocksAA').checked)
+        pool = pool.concat(blocksAAPool);
+    if (document.getElementById('blocksAAA').checked)
+        pool = pool.concat(blocksAAAPool);
 	index = Math.round( Math.random() * ( pool.length - 1 ) );
 	question = pool[ index ];
 	document.getElementById( 'letter' ).innerHTML = "?";
@@ -230,7 +235,9 @@ function reveal() {
     </div>
 	<div id="config" style="position:absolute;left:0px;bottom:25vh;font-size: 60%; text-align:left;">
         <input type="checkbox" id="randoms" checked>Randoms<br/>
-        <input type="checkbox" id="blocks" checked>Blocks<br/>
+        <input type="checkbox" id="blocksA" checked>Blocks A<br/>
+        <input type="checkbox" id="blocksAA" checked>Blocks AA<br/>
+        <input type="checkbox" id="blocksAAA" checked>Blocks AAA<br/>
 	</div>
 </body>
 
